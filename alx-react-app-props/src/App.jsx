@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import './App.css'
-import { UserContext } from './context/UserContext';
+import { UserContext } from './UserContext';
 import ProfilePage from './ProfilePage';
 
 export default function App() {
