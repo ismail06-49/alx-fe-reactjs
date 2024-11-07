@@ -6,7 +6,6 @@ import ProfilePage from './ProfilePage';
 export default function App() {
 
   const userData = useContext(UserContext)
-  console.log(userData);
   
   return (
 

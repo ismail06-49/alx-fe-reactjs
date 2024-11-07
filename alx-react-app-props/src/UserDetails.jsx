@@ -4,8 +4,6 @@ import { UserContext } from "./UserContext";
 export default function UserDetails() {
 
     const userData = useContext(UserContext)
-    console.log(userData);
-    
 
     return (
         <div>
