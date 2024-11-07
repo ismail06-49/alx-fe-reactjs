@@ -12,10 +12,7 @@ export default function Navbar() {
             left: '50%',
             transform: 'translate(-50%, -50%)',
         }}>
-            <Link style={{textDecoration: 'none',
-                color: 'black',
-                fontSize: '28px',
-                fontWeight: 'bold'}} to='/'>Home</Link>
+            <Link style={{textDecoration: 'none', color: 'black', fontSize: '28px', fontWeight: 'bold'}} to='/'>Home</Link>
             <Link style={{textDecoration: 'none',
                 color: 'black',
                 fontSize: '28px',
