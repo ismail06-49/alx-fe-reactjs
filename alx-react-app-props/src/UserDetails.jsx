@@ -3,12 +3,12 @@ import { UserContext } from "./UserContext";
 
 export default function UserDetails() {
 
-    const userData = useContext(UserContext)
+    const {userData} = useContext(UserContext)
 
     return (
         <div>
-            <p>Name: {userData.userData.name}</p>
-            <p>Email: {userData.userData.email}</p>
+            <p>Name: {userData.name}</p>
+            <p>Email: {userData.email}</p>
         </div>
     );
 }
