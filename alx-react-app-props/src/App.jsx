@@ -1,6 +1,6 @@
 import './App.css'
 import { UserContext } from './context/UserContext';
-import ProfilePage from './ProfilePage';
+import ProfilePage from './components/ProfilePage';
 
 export default function App() {
 
