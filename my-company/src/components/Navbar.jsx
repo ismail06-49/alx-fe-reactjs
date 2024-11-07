@@ -5,6 +5,7 @@ export default function Navbar() {
     return (
         <nav style={{
             width: '800px',
+            backgroundColor: '#c4c4c4',
             display: 'flex',
             justifyContent: 'space-between',
             position: 'absolute',
