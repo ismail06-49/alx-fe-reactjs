@@ -3,12 +3,12 @@ import { useRecipeStore } from "./recipeStore";
 
 const EditRecipeForm = (resipe) => {
 
-    const detailRecipe = useRecipeStore(state => state.detailRecipe);
+    const updateRecipe = useRecipeStore(state => state.updateRecipe);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const handleSubmit = (event) => {
         event.preventDefault();
-        detailRecipe({ id: resipe.id, title, description });
+        updateRecipe({ id: resipe.id, title, description });
         setTitle('');
         setDescription('');
     };
