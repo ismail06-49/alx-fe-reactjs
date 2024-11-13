@@ -20,4 +20,5 @@ export const useRecipeStore = create(set => ({
         set(state => ({
             editRecip: state.recipes.filter((recipe) => recipe.id == recipeId)
         })),
+    setRecipes: (recipes) => set({ recipes })
 }))
