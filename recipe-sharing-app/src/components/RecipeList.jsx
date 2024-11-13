@@ -7,7 +7,6 @@ const RecipeList = () => {
     const updateRecipe = useRecipeStore(state => state.updateRecipe)
     console.log(updateRecipe[0]);
     
-    
     return (
         <div>
             {recipes.map(recipe => (
