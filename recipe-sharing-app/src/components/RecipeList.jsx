@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useRecipeStore } from './recipeStore';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 const RecipeList = ({ setter }) => {
     
@@ -26,6 +27,9 @@ const RecipeList = ({ setter }) => {
 
     return (
         <div>
+            <Link>
+                <SearchBar />
+            </Link>
             {showRecipes.map(recipe => (
             <div key={recipe.id}>
                 <h3>{recipe.title}</h3>
