@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useRecipeStore } from './recipeStore';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,9 +11,22 @@ const RecipeList = ({ setter }) => {
         navigate('/recipedetails')
     )
     
+    const searchTerm = useRecipeStore(state => state.searchTerm);
+    const filterRecipes = useRecipeStore(state => state.filterRecipes);
+    const filteredRecipes = useRecipeStore(state => state.filteredRecipes);  
+    
+    const filter = () => {
+        filterRecipes();
+    }
+    useEffect(() => {
+        filter()
+    },[searchTerm]);
+    
+    let showRecipes = searchTerm.length == 0 ? recipes : filteredRecipes ;
+
     return (
         <div>
-            {recipes.map(recipe => (
+            {showRecipes.map(recipe => (
             <div key={recipe.id}>
                 <h3>{recipe.title}</h3>
                 <p>{recipe.description}</p>

@@ -4,6 +4,7 @@ import RecipeList from './components/RecipeList'
 import RecipeDetails from './components/RecipeDetails'
 import './App.css'
 import { useState } from 'react'
+import SearchBar from './components/SearchBar'
 
 function App() {
   const [id, setId] = useState(0);
@@ -16,6 +17,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<div>
+          <SearchBar />
           <RecipeList setter={data_from_child} />
           <AddRecipeForm />
         </div>} />
