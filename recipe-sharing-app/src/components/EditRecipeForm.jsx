@@ -1,28 +1,33 @@
 import { useState } from "react";
 import { useRecipeStore } from "./recipeStore";
+import { useNavigate } from "react-router-dom";
 
-const EditRecipeForm = (resipe) => {
-
+const EditRecipeForm = ({id, newRecipe}) => {
+    
+    const navigate = useNavigate()
     const updateRecipe = useRecipeStore(state => state.updateRecipe);
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
+    const [title, setTitle] = useState(newRecipe[0].title);
+    const [description, setDescription] = useState(newRecipe[0].description);
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        updateRecipe({ id: resipe.id, title, description });
+        const editRecipe = { id: id, title, description };
+        updateRecipe(id, editRecipe);
         setTitle('');
         setDescription('');
+        navigate('/')
     };
-
+    
     return (
         <form onSubmit={handleSubmit}>
             <input
             type="text"
-            value={resipe.title}
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Title"
             />
             <textarea
-            value={resipe.description}
+            value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Description"
             />

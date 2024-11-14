@@ -1,16 +1,21 @@
 import EditRecipeForm from './EditRecipeForm';
 import { useRecipeStore } from './recipeStore';
+import DeleteRecipeButton from './DeleteRecipeButton';
 
-const RecipeDetails = () => {
-    const updateRecipe = useRecipeStore(state => state.updateRecipe)
+const RecipeDetails = ({ recipeId }) => {
+    
+    const recipes = useRecipeStore(state => state.recipes);
+    const newRecipe = recipes.filter((recipe) => recipe.id === recipeId)
+    
     
 
     return (
         <div>
-            <h1>{updateRecipe.title}</h1>
-            <p>{updateRecipe.description}</p>
-                {/* Render EditRecipeForm and DeleteRecipeButton here */}
-            <EditRecipeForm  />
+            <h1>{newRecipe[0].title}</h1>
+            <p>{newRecipe[0].description}</p>
+            {/* Render EditRecipeForm and DeleteRecipeButton here */}
+            <DeleteRecipeButton id={recipeId} />
+            <EditRecipeForm id={recipeId} newRecipe={newRecipe} />
         </div>
     );
 };

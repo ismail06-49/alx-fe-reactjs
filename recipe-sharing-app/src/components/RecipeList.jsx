@@ -1,11 +1,14 @@
-import { Link } from 'react-router-dom';
 import { useRecipeStore } from './recipeStore';
+import { useNavigate } from 'react-router-dom';
 
-const RecipeList = () => {
+const RecipeList = ({ setter }) => {
+    
+    const navigate = useNavigate()
     const recipes = useRecipeStore(state => state.recipes);
-    const deleteRecipe = useRecipeStore(state => state.deleteRecipe);
-    const updateRecipe = useRecipeStore(state => state.updateRecipe)
-    console.log(updateRecipe[0]);
+    const getId = (id) => (
+        setter(id),
+        navigate('/recipedetails')
+    )
     
     return (
         <div>
@@ -13,8 +16,7 @@ const RecipeList = () => {
             <div key={recipe.id}>
                 <h3>{recipe.title}</h3>
                 <p>{recipe.description}</p>
-                <button onClick={() => deleteRecipe(recipe.id)}>Delete</button>
-                <Link to={'/recipedetails'} onClick={() => recipe(updateRecipe.id)}>View</Link>
+                <button  onClick={()=>getId(recipe.id)}>Edit</button>
             </div>
             ))}
         </div>
