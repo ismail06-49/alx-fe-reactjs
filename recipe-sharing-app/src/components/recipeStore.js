@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 
 export const useRecipeStore = create(set => ({
-    recipes: [/*{
+    recipes: [{
             id: 1,
             title: 'aaRecipe 1',
             description: 'this is recipe1',
@@ -15,7 +15,7 @@ export const useRecipeStore = create(set => ({
             id: 3,
             title: 'ccRecipe 3',
             description: 'this is recipe3',
-        }*/
+        }
     ],
     searchTerm: '',
     filteredRecipes: [],
@@ -44,5 +44,22 @@ export const useRecipeStore = create(set => ({
                 recipe.id === recipeId ? { ...recipe, ...updatedRecipe } : recipe)
         })),
 
-    setRecipes: (recipes) => set({ recipes })
+    setRecipes: (recipes) => set({ recipes }),
+
+    favorites: [],
+
+    addFavorite: (recipeId) => set(state => ({ favorites: [...state.favorites, recipeId] })),
+
+    removeFavorite: (recipeId) => set(state => ({
+        favorites: state.favorites.filter(id => id !== recipeId)
+    })),
+
+    recommendations: [],
+
+    generateRecommendations: () => set(state => {
+        const recommended = state.recipes.filter(recipe =>
+        state.favorites.includes(recipe.id) && Math.random() > 0.5
+        );
+        return { recommendations: recommended };
+    }),
 }))

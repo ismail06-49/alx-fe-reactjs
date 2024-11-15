@@ -4,6 +4,8 @@ import RecipeList from './components/RecipeList'
 import RecipeDetails from './components/RecipeDetails'
 import './App.css'
 import { useState } from 'react'
+import FavoritesList from './components/FavoritesList'
+import RecommendationsList from './components/RecommendationsList'
 
 function App() {
   const [id, setId] = useState(0);
@@ -20,6 +22,8 @@ function App() {
           <AddRecipeForm />
         </div>} />
         <Route path='/recipedetails' element={<RecipeDetails recipeId={id} />} />
+        <Route path='/favorites' element={<FavoritesList />} />
+        <Route path='/recommendations' element={<RecommendationsList />} />
       </Routes>
     </BrowserRouter>
   )
