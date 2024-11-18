@@ -5,7 +5,7 @@ export default function RegistrationForm() {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [error, setError] = useState('');
+    const [errors, setErrors] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -16,14 +16,24 @@ export default function RegistrationForm() {
         } else if (name === 'password') {
             setPassword(value)
         }
-        setError('');
+        setErrors('');
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!username || !email || !password) {
-            setError('All fields are required.');
+        if (!username) {
+            setErrors('User field is required.');
+            return;
+        }
+
+        if (!email) {
+            setErrors('Email field is required.');
+            return;
+        }
+
+        if (!password) {
+            setErrors('Password field is required.');
             return;
         }
 
@@ -32,7 +42,7 @@ export default function RegistrationForm() {
 
     return (
         <form onSubmit={handleSubmit}>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+            {errors && <p style={{ color: 'red' }}>{errors}</p>}
             <input
                 type="text"
                 name="name"
