@@ -2,24 +2,32 @@ import { useState } from "react";
 
 export default function RegistrationForm() {
 
-    const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const [error, setError] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prevState => ({ ...prevState, [name]: value }));
+        if (name === 'name') {
+            setUsername(value)
+        } else if (name === 'email') {
+            setEmail(value)
+        } else if (name === 'password') {
+            setPassword(value)
+        }
         setError('');
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!formData.name || !formData.email || !formData.password) {
+        if (!username || !email || !password) {
             setError('All fields are required.');
             return;
         }
 
-        console.log(formData);
+        console.log(`Username: ${username} , Email: ${email} , Password: ${password}`);
     };
 
     return (
@@ -28,18 +36,18 @@ export default function RegistrationForm() {
             <input
                 type="text"
                 name="name"
-                value={formData.name}
+                value={username}
                 onChange={handleChange}
             />
             <input
                 type="email"
                 name="email"
-                value={formData.email}
+                value={email}
                 onChange={handleChange}
             /><input
                 type="password"
                 name="password"
-                value={formData.password}
+                value={password}
                 onChange={handleChange}
             />
             <button type="submit">Submit</button>
