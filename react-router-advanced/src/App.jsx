@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='' element={<Profile />} />
+        <Route path='/profile' element={<Profile />} />
         <PrivateRoute path='/blog/:id' component={BlogPost} />
       </Routes>
     </BrowserRouter>
