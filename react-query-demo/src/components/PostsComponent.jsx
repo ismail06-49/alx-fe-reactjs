@@ -7,15 +7,18 @@ const fetchData = async () => {
 
 export default function PostsComponent() {
 
-    const { data, error, isLoading, refetch } = useQuery('fetchData', fetchData);
+    const { data, error, isLoading, isError, refetch } = useQuery('fetchData', fetchData);
     // Handle loading state
     if (isLoading) return <div>Loading...</div>;
     // Handle error state
-    if (error) return <div>Error loading data</div>;
+    if (isError) {
+        console.log('error:', error);
+        return <div>Error loading data</div>;
+    }
 
     // Render the fetched data
     return (
-        <div>
+        <div className='fetchPosts'>
             <button onClick={refetch}>Refetch Data</button>
             {data.map(item => (
                 <div key={item.id}>
