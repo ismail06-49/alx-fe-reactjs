@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
+import ProfileSettings from "./ProfileSettings";
+import ProfileDetails from "./ProfileDetails";
 
 
 export default function Profile() {
@@ -10,6 +12,14 @@ export default function Profile() {
                 <li><Link to='/settings' > Settings</Link></li>
                 <li><Link to='/details' > Details</Link></li>
             </ul>
+            <Routes>
+                <Route path='/settings'>
+                    <ProfileSettings />
+                </Route>
+                <Route path='/details'>
+                    <ProfileDetails />
+                </Route>
+            </Routes>
         </div>
     )
 }
