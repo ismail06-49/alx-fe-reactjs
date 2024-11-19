@@ -1,23 +1,25 @@
-import { Route, redirect } from "react-router-dom";
+import { Route, useNavigate } from "react-router-dom";
 
-const isAuthenticated = () => {
-    // Replace with your authentication logic, for instance checking if a token exists in local storage
+
+
+
+
+export default function PrivateRoute({ component: Component, ...rest }) {
+
+    const navigate = useNavigate();
+    const useAuth = () => {
     return localStorage.getItem('authToken') !== null;
 };
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
         render={props =>
-            isAuthenticated() ? (
-                // If authenticated, render the component
+            useAuth() ? (
                 <Component {...props} />
             ) : (
-                // If not authenticated, redirect to the login page
-                redirect("/")
+                navigate("/")
             )
         }
     />
-);
+};
 
-export default PrivateRoute
