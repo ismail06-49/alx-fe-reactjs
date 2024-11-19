@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './App.css'
 import Profile from './components/Profile'
+import BlogPost from "./BlogPost";
+import './App.css'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='' element={<Profile />} />
+        <Route path='/post/:postId' element={<BlogPost />} />
       </Routes>
     </BrowserRouter>
   )

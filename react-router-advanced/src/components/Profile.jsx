@@ -11,6 +11,8 @@ export default function Profile() {
             <ul>
                 <li><Link to='/settings' > Settings</Link></li>
                 <li><Link to='/details' > Details</Link></li>
+                <li><Link to='/post/1'>Post 1</Link></li>
+                <li><Link to='/post/2'>Post 2</Link></li>
             </ul>
             <Routes>
                 <Route path='/settings'>
