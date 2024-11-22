@@ -1,18 +1,20 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { TodoContext } from "../context/TodoContext"
 
 export default function TodoList() {
 
     const { todos, toggleTodo, deleteTodo } = useContext(TodoContext)
+    const [dark, setDark] = useState(false)
 
 
     return (
         <div>
+            <button onClick={setDark(!dark)}>toggle</button>
             {
                 todos.map(
                     (todo, index) => (
                         <div
-                            className={`todo ${todo.completed ? 'completed' : ''}`}
+                            className={`todo ${dark ? 'dark' : ''} ${todo.completed ? 'completed' : ''}`}
                             key={index}
                             onClick={() => toggleTodo(index)}
                         >
