@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import TodoList from './TodoList';
 
 test('renders TodoList component with initial demo todos', () => {
@@ -12,3 +12,9 @@ test('renders TodoList component with initial demo todos', () => {
         expect(todoItem).toBeInTheDocument();
     });
 });
+
+test('check add todo functionality', () => {
+    render(<TodoList />);
+
+    fireEvent.click(screen.getByText('AddTodoForm'))
+})
