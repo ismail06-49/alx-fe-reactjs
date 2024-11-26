@@ -1,10 +1,11 @@
 import './App.css'
+import UserProfile from './components/UserProfile'
 
 function App() {
 
   return (
     <>
-      <h1 className='text-green-800'>Tailwind CSS</h1>
+      <UserProfile />
     </>
   )
 }
