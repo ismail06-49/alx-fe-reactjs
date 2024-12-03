@@ -1,41 +1,77 @@
-import { Formik, Form, Field, ErrorMessage} from 'formik';
-import * as Yup from 'yup';
-
-const validationSchema = Yup.object({
-    title: Yup.string().required('title is required'),
-    ingredients: Yup.string().required('ingredients is required'),
-    instructions: Yup.string().required('instructions is required')
-})
+import { useState } from "react"
 
 export default function AddRecipeForm() {
 
+    const [title, setTitle] = useState("");
+    const [ingredients, setIngredients] = useState([]);
+    const [instructions, setInstructions] = useState([]);
+    const [errors, setErrors] = useState('');
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        if (name === 'title') {
+            setTitle(value)
+        } else if (name === 'ingredients') {
+            const newIngredients = value.split(',').map(item => item.trim()).filter(item => item);
+            setIngredients(newIngredients);
+        } else if (name === 'instructions') {
+            const newInstructions = value.split(',').map(item => item.trim()).filter(item => item);
+            setInstructions(newInstructions);
+        }
+        setErrors('')
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!title) {
+            setErrors('Title field is required.');
+            return;
+        }
+
+        if (ingredients.length < 2) {
+            setErrors('At least two ingredients are required.');
+            return;
+        }
+
+        if (instructions.length < 2) {
+            setErrors('At least two instructions are required.');
+            return;
+        }
+        console.log(`tirle: ${title} , ingredients: ${ingredients} , instructions: ${instructions}`);
+        console.log(ingredients);
+        
+    }
+    
     return (
-        <Formik
-            initialValues={{ title: '', ingredients: '', instructions: '' }}
-            validationSchema={validationSchema}
-            onSubmit={(values) => {
-                console.log(values);
-            }}
-        >
-            {
-                () => (
-                    <Form className='max-w-xl mx-auto mt-4'>
-                        <div className="mb-5 mx-auto">
-                            <Field className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' type="text" name="title" placeholder="Title" />
-                            <ErrorMessage className='text-red-500 text-xs italic' name="title" component="div" />
-                        </div>
-                        <div className="mb-5">
-                            <Field className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' type="textarea" name="ingredients" placeholder="Ingredients" />
-                            <ErrorMessage className='text-red-500 text-xs italic' name="ingredients" component="div" />
-                        </div>
-                        <div className="mb-5">
-                            <Field className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' type="textarea" name="instructions" placeholder="Instructions" />
-                            <ErrorMessage className='text-red-500 text-xs italic' name="instructions" component="div" />
-                        </div>
-                        <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' type="submit">Submit</button>
-                    </Form>
-                )
-            }
-        </Formik>
+
+        <form className='max-w-xl mx-auto mt-4' onSubmit={handleSubmit}>
+            {errors && <p style={{ color: 'red' }}>{errors}</p>}
+            <div className="mb-5 mx-auto">
+                <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                    type="text"
+                    name="title"
+                    placeholder="Title"
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="mb-5">
+                <textarea className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                    type="text"
+                    name="ingredients"
+                    placeholder="Ingredients"
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="mb-5">
+                <textarea className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                    type="text"
+                    name="instructions"
+                    placeholder="Instructions"
+                    onChange={handleChange}
+                />
+            </div>
+            <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' type="submit">Submit</button>
+        </form>
     )
 }
