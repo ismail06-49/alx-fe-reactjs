@@ -6,6 +6,7 @@ export default function AddRecipeForm() {
     const [ingredients, setIngredients] = useState([]);
     const [instructions, setInstructions] = useState([]);
     const [errors, setErrors] = useState('');
+    const [Steps, setSteps] = useState([]);
 
     const handleChange = (e) => {
         const { name } = e.target;
