@@ -1,0 +1,94 @@
+[
+    {
+        "id": 1,
+        "title": "Spaghetti Carbonara",
+        "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": [
+            "400g spaghetti",
+            "150g pancetta or bacon ,diced",
+            "2 large eggs",
+            "100g grated Parmesan cheese",
+            "2 cloves garlic, minced",
+            "Salt and pepper to taste",
+            "Fresh parsley, chopped (for garnish)"
+        ],
+        "instructions": [
+            "1. Cook spaghetti in salted boiling water until al dente. Reserve 1 cup of pasta water and drain.",
+            "2. In a pan, cook pancetta until crispy. Add garlic and sauté for 1 minute.",
+            "3. In a bowl, whisk together eggs and Parmesan.",
+            "4. Combine hot pasta with pancetta and garlic, then quickly stir in the egg mixture, adding reserved pasta water as needed to create a creamy sauce.",
+            "5. Season with salt and pepper. Garnish with parsley and serve immediately."
+    ]
+    },
+    {
+        "id": 2,
+        "title": "Chicken Tikka Masala",
+        "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": [
+            "500g chicken breast, cubed",
+            "200g yogurt",
+            "2 tbsp tikka masala spice mix",
+            "1 onion, chopped",
+            "2 cloves garlic, minced",
+            "1 can (400g) crushed tomatoes",
+            "200ml cream",
+            "Fresh cilantro for garnish",
+            "Salt to taste"
+        ],
+        "instructions": [
+            "1. Marinate chicken in yogurt and tikka masala for at least 1 hour.",
+            "2. In a pan, sauté onion and garlic until soft. Add marinated chicken and cook until browned.",
+            "3. Stir in crushed tomatoes and simmer for 15 minutes.",
+            "4. Add cream and cook for another 5 minutes. Season with salt.",
+            "5. Garnish with cilantro and serve with rice or naan."
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Spaghetti Carbonara (1)",
+        "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": [
+            "400g spaghetti",
+            "150g pancetta or bacon ,diced",
+            "2 large eggs",
+            "100g grated Parmesan cheese",
+            "2 cloves garlic, minced",
+            "Salt and pepper to taste",
+            "Fresh parsley, chopped (for garnish)"
+        ],
+        "instructions": [
+            "1. Cook spaghetti in salted boiling water until al dente. Reserve 1 cup of pasta water and drain.",
+            "2. In a pan, cook pancetta until crispy. Add garlic and sauté for 1 minute.",
+            "3. In a bowl, whisk together eggs and Parmesan.",
+            "4. Combine hot pasta with pancetta and garlic, then quickly stir in the egg mixture, adding reserved pasta water as needed to create a creamy sauce.",
+            "5. Season with salt and pepper. Garnish with parsley and serve immediately."
+    ]
+    },
+    {
+        "id": 4,
+        "title": "Chicken Tikka Masala (2)",
+        "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": [
+            "500g chicken breast, cubed",
+            "200g yogurt",
+            "2 tbsp tikka masala spice mix",
+            "1 onion, chopped",
+            "2 cloves garlic, minced",
+            "1 can (400g) crushed tomatoes",
+            "200ml cream",
+            "Fresh cilantro for garnish",
+            "Salt to taste"
+        ],
+        "instructions": [
+            "1. Marinate chicken in yogurt and tikka masala for at least 1 hour.",
+            "2. In a pan, sauté onion and garlic until soft. Add marinated chicken and cook until browned.",
+            "3. Stir in crushed tomatoes and simmer for 15 minutes.",
+            "4. Add cream and cook for another 5 minutes. Season with salt.",
+            "5. Garnish with cilantro and serve with rice or naan."
+        ]
+    }
+]
