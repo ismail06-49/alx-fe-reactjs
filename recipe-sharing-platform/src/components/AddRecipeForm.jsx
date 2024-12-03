@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState } from "react";
+import { Steps, Panel, Placeholder, ButtonGroup, Button } from 'rsuite';
 
 export default function AddRecipeForm() {
 
@@ -6,7 +7,13 @@ export default function AddRecipeForm() {
     const [ingredients, setIngredients] = useState([]);
     const [instructions, setInstructions] = useState([]);
     const [errors, setErrors] = useState('');
-    const [Steps, setSteps] = useState([]);
+    const [step, setStep] = useState(0);
+    const onChange = nextStep => {
+        setStep(nextStep < 0 ? 0 : nextStep > 2 ? 2 : nextStep);
+    };
+
+    const onNext = () => onChange(step + 1);
+    const onPrevious = () => onChange(step - 1);
 
     const handleChange = (e) => {
         const { name } = e.target;
@@ -48,32 +55,54 @@ export default function AddRecipeForm() {
     return (
 
         <form className='max-w-xl mx-auto mt-4' onSubmit={handleSubmit}>
+            <Steps className="mt-auto flex" current={step}>
+                <Steps.Item title="Title" description="Description" />
+                <Steps.Item title="Ingredients" description="Description" />
+                <Steps.Item title="Instructions" description="Description" />
+            </Steps>
+
             {errors && <p style={{ color: 'red' }}>{errors}</p>}
-            <div className="mb-5 mx-auto">
-                <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-                    type="text"
-                    name="title"
-                    placeholder="Title"
-                    onChange={handleChange}
-                />
-            </div>
-            <div className="mb-5">
-                <textarea className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-                    type="text"
-                    name="ingredients"
-                    placeholder="Ingredients"
-                    onChange={handleChange}
-                />
-            </div>
-            <div className="mb-5">
-                <textarea className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-                    type="text"
-                    name="instructions"
-                    placeholder="Instructions"
-                    onChange={handleChange}
-                />
-            </div>
-            <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' type="submit">Submit</button>
+
+            <Panel className="my-3" header={`Step: ${step + 1}`} >
+                {step === 0 ? (
+                    <div className="my-5 mx-auto">
+                        <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                            type="text"
+                            name="title"
+                            placeholder="Title"
+                            onChange={handleChange}
+                        />
+                    </div>) : null
+                }
+                {step === 1 ? (
+                    <div className="mb-5">
+                        <textarea className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                            type="text"
+                            name="ingredients"
+                            placeholder="Ingredients"
+                            onChange={handleChange}
+                        />
+                    </div>) : null
+                }
+                {step === 2 ? (
+                    <div className="mb-5">
+                        <textarea className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                            type="text"
+                            name="instructions"
+                            placeholder="Instructions"
+                            onChange={handleChange}
+                        />
+                    </div>) : null
+                }
+            </Panel>
+            <ButtonGroup>
+                <Button className="btn-primary" onClick={onPrevious} disabled={step === 0}>
+                Previous
+                </Button>
+                {step < 2 ? <Button className='btn-primary' onClick={onNext}>
+                Next
+                </Button> : <button className='btn-primary' type="submit">Submit</button>}
+            </ButtonGroup>
         </form>
     )
 }
