@@ -8,7 +8,8 @@ export default function AddRecipeForm() {
     const [errors, setErrors] = useState('');
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { name } = e.target;
+        const value = e.target.value;
         if (name === 'title') {
             setTitle(value)
         } else if (name === 'ingredients') {
