@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Steps, Panel, Placeholder, ButtonGroup, Button } from 'rsuite';
+import { Steps, Panel, ButtonGroup, Button } from 'rsuite';
 
 export default function AddRecipeForm() {
 
     const [title, setTitle] = useState("");
     const [ingredients, setIngredients] = useState([]);
-    const [instructions, setInstructions] = useState([]);
+    const [steps, setSteps] = useState([]);
     const [errors, setErrors] = useState('');
     const [step, setStep] = useState(0);
     const onChange = nextStep => {
@@ -25,7 +25,7 @@ export default function AddRecipeForm() {
             setIngredients(newIngredients);
         } else if (name === 'instructions') {
             const newInstructions = value.split(',').map(item => item.trim()).filter(item => item);
-            setInstructions(newInstructions);
+            setSteps(newInstructions);
         }
         setErrors('')
     }
@@ -43,11 +43,11 @@ export default function AddRecipeForm() {
             return;
         }
 
-        if (instructions.length < 2) {
+        if (steps.length < 2) {
             setErrors('At least two instructions are required.');
             return;
         }
-        console.log(`tirle: ${title} , ingredients: ${ingredients} , instructions: ${instructions}`);
+        console.log(`tirle: ${title} , ingredients: ${ingredients} , instructions: ${steps}`);
         console.log(ingredients);
         
     }
