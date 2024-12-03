@@ -6,7 +6,7 @@ export default function AddRecipeForm() {
     const [title, setTitle] = useState("");
     const [ingredients, setIngredients] = useState([]);
     const [steps, setSteps] = useState([]);
-    const [errors, setErrors] = useState('');
+    const [validate, setValidate] = useState('');
     const [step, setStep] = useState(0);
     const onChange = nextStep => {
         setStep(nextStep < 0 ? 0 : nextStep > 2 ? 2 : nextStep);
@@ -27,24 +27,24 @@ export default function AddRecipeForm() {
             const newInstructions = value.split(',').map(item => item.trim()).filter(item => item);
             setSteps(newInstructions);
         }
-        setErrors('')
+        setValidate('')
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         if (!title) {
-            setErrors('Title field is required.');
+            setValidate('Title field is required.');
             return;
         }
 
         if (ingredients.length < 2) {
-            setErrors('At least two ingredients are required.');
+            setValidate('At least two ingredients are required.');
             return;
         }
 
         if (steps.length < 2) {
-            setErrors('At least two instructions are required.');
+            setValidate('At least two instructions are required.');
             return;
         }
         console.log(`tirle: ${title} , ingredients: ${ingredients} , instructions: ${steps}`);
@@ -61,7 +61,7 @@ export default function AddRecipeForm() {
                 <Steps.Item title="Instructions" description="Description" />
             </Steps>
 
-            {errors && <p style={{ color: 'red' }}>{errors}</p>}
+            {validate && <p style={{ color: 'red' }}>{validate}</p>}
 
             <Panel className="my-3" header={`Step: ${step + 1}`} >
                 {step === 0 ? (
