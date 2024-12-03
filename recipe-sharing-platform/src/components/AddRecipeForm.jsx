@@ -68,10 +68,10 @@ export default function AddRecipeForm() {
 
             {!validate && <p style={{ color: 'red' }}>{errors}</p>}
 
-            <Panel className="my-3" header={`Step: ${step + 1}`} >
+            <Panel className="my-3 font-bold" header={`Step: ${step + 1}`} >
                 {step === 0 ? (
                     <div className="my-5 mx-auto">
-                        <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                        <input className='shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
                             type="text"
                             name="title"
                             placeholder="Title"
@@ -80,8 +80,8 @@ export default function AddRecipeForm() {
                     </div>) : null
                 }
                 {step === 1 ? (
-                    <div className="mb-5">
-                        <textarea className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                    <div className="my-5">
+                        <textarea className='shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
                             type="text"
                             name="ingredients"
                             placeholder="Ingredients"
@@ -90,8 +90,8 @@ export default function AddRecipeForm() {
                     </div>) : null
                 }
                 {step === 2 ? (
-                    <div className="mb-5">
-                        <textarea className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                    <div className="my-5">
+                        <textarea className='shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
                             type="text"
                             name="instructions"
                             placeholder="Instructions"
