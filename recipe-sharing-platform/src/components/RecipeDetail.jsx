@@ -21,9 +21,9 @@ export default function RecipeDetail() {
     if (!recipe) return <div>Loading...</div>;
 
     return (
-        <div className="p-4">
+        <div className="p-6">
             <h1 className="text-3xl font-bold mb-4">{recipe.title}</h1>
-            <img className="w-full h-64 object-cover mb-4" src={recipe.image} alt={recipe.title} />
+            <img className="w-full shadow-lg h-64 object-cover mb-4" src={recipe.image} alt={recipe.title} />
             <h2 className="text-xl font-semibold mb-2">Ingredients</h2>
             <ul className="list-disc list-inside mb-4">
                 {recipe.ingredients.map((ingredient, index) => (
