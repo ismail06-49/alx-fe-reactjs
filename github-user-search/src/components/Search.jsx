@@ -22,6 +22,8 @@ export default function Search() {
                 setUser (data);
             } catch (err) {
                 setError(true);
+                console.log('Looks like we cant find the user');
+                
             } finally {
                 setLoading(false);
             }
