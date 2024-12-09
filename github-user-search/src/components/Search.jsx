@@ -7,6 +7,7 @@ export default function Search() {
     const [user, setUser ] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [login, setLogin] = useState(false)
 
     function handleChange(e) {        
         e.preventDefault
@@ -19,7 +20,8 @@ export default function Search() {
             setError(false);
             try {
                 const data = await fetchUserData(search);
-                setUser (data);
+                setUser(data);
+                setLogin(true)
             } catch (err) {
                 setError(true);
                 console.log('Looks like we cant find the user');
@@ -38,8 +40,8 @@ export default function Search() {
                 <button className="w-1/4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg" type="submit">Refresh</button>
             </form>
             {loading && <p>Loading...</p>}
-            {error && <p>Looks like we can&apos;t find the user</p>}
-            {user && (
+            {error && <p>Looks like we cant find the user</p>}
+            {login && (
                 <div className="flex flex-col w-1/4 mx-auto mt-4 bg-white border shadow-sm rounded-xl p-4 md:p-5 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
                     <h2 className="text-lg text-center font-bold text-gray-800 dark:text-white">{user.name}</h2>
                     <img className="mx-auto" src={user.avatar_url} alt={`${user.name}'s avatar`} width="100" />
