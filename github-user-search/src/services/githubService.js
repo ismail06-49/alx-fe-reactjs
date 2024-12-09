@@ -1,18 +1,19 @@
-
+import axios from 'axios';
 // console.log(process.env.REACT_APP_GITHUB_API_KEY);
 
 export async function fetchUserData(term) {
+
+    const options = {
+        method: 'GET',
+        url: `https://api.github.com/users/${term}`,
+    };
+
     try {
-        const response = await fetch(`https://api.github.com/users/${term}`);
-
-        if (!response.ok) {
-        throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json(); 
-        console.log('Success:', data); 
-        return data;
+        const response = await axios.request(options);
+        return response.data;
     } catch (error) {
-        console.error('Error:', error);
+        console.error(error);
     }
 }
+
+    
