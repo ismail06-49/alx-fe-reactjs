@@ -4,7 +4,7 @@ import axios from 'axios';
 export async function fetchUserData(term) {
 
     const options = {
-        method: 'GET',
+        method: 'get',
         url: `https://api.github.com/users/${term}`,
     };
 
