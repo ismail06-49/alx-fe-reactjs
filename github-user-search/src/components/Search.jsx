@@ -20,13 +20,10 @@ export default function Search() {
             try {
                 const data = await fetchUserData(user, location, minRepos);
                 setUsers(data);
-                console.log(data);
-                console.log(users);
                 setLogin(true)
             } catch (err) {
                 setError(true);
                 console.log(`Looks like we cant find the user: ${err}`);
-                
             } finally {
                 setLoading(false);
             }
