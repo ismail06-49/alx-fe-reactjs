@@ -8,7 +8,7 @@ export default function Search() {
     const [minRepos, setMinRepos] = useState('');
     const [users, setUsers ] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState('');
     const [login, setLogin] = useState(false)
 
     function handleChange(e) {        
@@ -22,8 +22,7 @@ export default function Search() {
                 setUsers(data);
                 setLogin(true)
             } catch (err) {
-                setError(true);
-                console.log(`Looks like we cant find the user: ${err}`);
+                setError(err);
             } finally {
                 setLoading(false);
             }
