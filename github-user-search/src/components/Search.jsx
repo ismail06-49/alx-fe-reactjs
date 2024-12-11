@@ -1,4 +1,5 @@
-import {  useState } from "react";
+import React from "react";
+import { useState } from "react";
 import { fetchUserData } from "../services/githubService";
 
 export default function Search() {
