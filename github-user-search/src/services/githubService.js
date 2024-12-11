@@ -1,9 +1,9 @@
 import axios from 'axios';
 // console.log(process.env.REACT_APP_GITHUB_API_KEY);
 
-export async function fetchUserData(user, location, repo) {
+export async function fetchUserData(user, location, minRepos) {
 
-    const query = `${user} ${location ? `+location:${location}` : ''} ${repo ? `+repos:>=${repo}` : ''}`.trim();
+    const query = `${user} ${location ? `+location:${location}` : ''} ${minRepos ? `+repos:>=${minRepos}` : ''}`.trim();
     const options = {
         method: 'get',
         url: `https://api.github.com/search/users?q=${query}`,
