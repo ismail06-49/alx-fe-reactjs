@@ -45,7 +45,7 @@ export default function Search() {
                 users.map((per) => (
                     <div key={per.id} className="flex flex-col w-1/4 mx-auto mt-4 bg-white border shadow-sm rounded-xl p-4 md:p-5 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
                         <h2 className="text-lg text-center font-bold text-gray-800 dark:text-white">{per.login}</h2>
-                        <img className="mx-auto" src={per.avatar_url} alt={`${per.login}'s avatar`} width="100" />
+                        <img className="mx-auto" srcSet={per.avatar_url} alt={`${per.login}'s avatar`} width="100" />
                         <a className="mt-3 text-center gap-x-1 text-sm font-semibold rounded-lg border border-transparent text-blue-600 decoration-2 hover:text-blue-700 hover:underline focus:underline focus:outline-none focus:text-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-600 dark:focus:text-blue-600" href={per.html_url} target="_blank" rel="noopener noreferrer">View Profile</a>
                     </div>
                 ))
