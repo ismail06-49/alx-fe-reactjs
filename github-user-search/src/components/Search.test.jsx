@@ -8,13 +8,14 @@ describe('Search', () => {
     it('should render correctly', () => {
         render(<Search />);
 
+        const user = screen.getByRole('userInput');
+        const location = screen.getByRole('locationInput');
+        const repo = screen.getByRole('repoInput')
         const button = screen.getByRole('button');
-        expect(button).toBeInTheDocument();
-    })
-})
 
-describe('group', () => {
-    it('should', () => {
-        expect(1).toBeTruthy();
+        expect(user).toBeInTheDocument();
+        expect(location).toBeInTheDocument();
+        expect(repo).toBeInTheDocument();
+        expect(button).toBeInTheDocument();
     })
 })

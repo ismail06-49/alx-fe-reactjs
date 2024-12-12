@@ -1,5 +1,6 @@
 import axios from 'axios';
-// console.log(process.env.REACT_APP_GITHUB_API_KEY);
+
+// process.env.REACT_APP_GITHUB_API_KEY
 
 export async function fetchUserData(user, location, minRepos) {
 
